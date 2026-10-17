@@ -27,6 +27,11 @@ try:
 except ImportError:
     pass
 
+# 云数据库(如 Aiven)强制 SSL; 本地 MySQL 不需要
+if DB_CONFIG["host"] not in ("localhost", "127.0.0.1"):
+    import ssl as _ssl
+    DB_CONFIG["ssl"] = {"check_hostname": False, "verify_mode": _ssl.CERT_NONE}
+
 PORT = int(os.environ.get("PORT", "8000"))  # 云平台会自动注入 PORT
 
 CREATE_TABLE_SQL = """
