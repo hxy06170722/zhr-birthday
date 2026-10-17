@@ -1,0 +1,14 @@
+# 本地数据库密码(不上传)
+db_local.py
+
+# 临时脚本与素材源文件
+_cut_doll.py
+_cut_doll_pil.py
+easter_voice.mp4
+
+# Python
+__pycache__/
+*.pyc
+
+# Trae 生成的分享包
+.trae-html-share-packages/
